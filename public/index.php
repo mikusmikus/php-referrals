@@ -6,10 +6,6 @@ require_once __DIR__ . '/../vendor/autoload.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Verify autoloader
-var_dump(file_exists(__DIR__ . '/../vendor/autoload.php'));
-var_dump(file_exists(__DIR__ . '/../src/ServicesTest/ReferralService.php'));
-
 use App\ControllersTest\ReferralController;
 use App\ServicesTest\ReferralService;
 
