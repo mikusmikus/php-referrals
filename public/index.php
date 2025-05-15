@@ -2,6 +2,14 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+// Debug information
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Verify autoloader
+var_dump(file_exists(__DIR__ . '/../vendor/autoload.php'));
+var_dump(file_exists(__DIR__ . '/../src/Services/ReferralService.php'));
+
 use App\Controllers\ReferralController;
 use App\Services\ReferralService;
 
