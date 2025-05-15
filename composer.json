@@ -1,7 +1,6 @@
 {
   "name": "mikusmeikulis/php-referrals",
   "description": "PHP form with external API integration",
-  "version": "1.0.0",
   "require": {
     "php": ">=7.4",
     "vlucas/phpdotenv": "^5.5"
