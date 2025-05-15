@@ -8,10 +8,10 @@ ini_set('display_errors', 1);
 
 // Verify autoloader
 var_dump(file_exists(__DIR__ . '/../vendor/autoload.php'));
-var_dump(file_exists(__DIR__ . '/../src/Services/ReferralService.php'));
+var_dump(file_exists(__DIR__ . '/../src/ServicesTest/ReferralService.php'));
 
-use App\Controllers\ReferralController;
-use App\Services\ReferralService;
+use App\ControllersTest\ReferralController;
+use App\ServicesTest\ReferralService;
 
 $method = $_SERVER['REQUEST_METHOD'];
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -40,7 +40,7 @@ if (preg_match('/^\/referrals\/([a-zA-Z0-9]+)$/', $path, $matches)) {
         exit;
     }
     
-    require_once __DIR__ . '/../src/Views/referral.php';
+    require_once __DIR__ . '/../src/ViewsTest/referral.php';
     exit;
 }
 

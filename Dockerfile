@@ -14,14 +14,14 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
     php -r "unlink('composer-setup.php');"
 
-# Copy the entire application
+# Install dependencies and generate optimized autoloader
+RUN composer install --no-dev --optimize-autoloader --no-scripts
+
+# Copy the rest of the application
 COPY . .
 
-# Install dependencies and generate optimized autoloader
-RUN composer install --no-dev --optimize-autoloader && \
-    composer dump-autoload -o && \
-    ls -la /app/src/Services/ && \
-    cat /app/src/Services/ReferralService.php
+# Generate optimized autoloader again after copying all files
+RUN composer dump-autoload --optimize --no-dev
 
 EXPOSE 10000
 
