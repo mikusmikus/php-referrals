@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ServicesTest;
+namespace App\Services;
 
 class ReferralService
 {

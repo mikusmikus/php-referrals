@@ -453,3 +453,166 @@ body.g360-theme--light {
   text-align: center;
   margin: 1rem 0;
 }
+
+/* zip codes */
+
+.g360-zip-code-section {
+  border-radius: 24px;
+  background-color: var(--brand-blue);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
+  .g360-zip-code-section {
+    padding: 32px;
+  }
+}
+
+.g360-zip-code-form-input-wrapper {
+  position: relative;
+  display: flex;
+  background-color: var(--brand-blue);
+  justify-content: end;
+  border-radius: 12px;
+  gap: 12px;
+}
+
+.g360-zip-code-form-input-wrapper .g360-zip-code-form-input {
+  position: absolute;
+  inset: 0;
+  padding: 0 20px;
+  background: none;
+  border: 1px solid var(--gray-dark);
+  color: var(--white);
+  border-radius: 12px;
+  font-size: var(--font-body-small);
+  transition: border-color 0.2s;
+  -webkit-text-fill-color: var(--white);
+  -webkit-box-shadow: 0 0 0px 1000px var(--brand-blue) inset;
+}
+
+.g360-zip-code-form-input-wrapper .g360-zip-code-form-input:-webkit-autofill,
+.g360-zip-code-form-input-wrapper .g360-zip-code-form-input:-webkit-autofill:hover,
+.g360-zip-code-form-input-wrapper .g360-zip-code-form-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--white);
+  -webkit-box-shadow: 0 0 0px 1000px var(--brand-blue) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (min-width: 480px) {
+  .g360-zip-code-form-input-wrapper .g360-zip-code-form-input {
+    padding-right: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .g360-zip-code-form-input-wrapper .g360-zip-code-form-input {
+    position: relative;
+    min-height: 48px;
+    background-color: var(--brand-blue);
+  }
+  .g360-zip-code-form-input-wrapper {
+    background-color: transparent;
+  }
+}
+
+.g360-zip-code-form-submit-button {
+  margin-top: 1px;
+  position: relative;
+  z-index: 10;
+}
+
+.g360-zip-code-form-submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.g360-zip-code-form-input-wrapper .g360-zip-code-form-input:hover {
+  border-color: var(--gray);
+  color: var(--white);
+}
+
+.g360-zip-code-form-input-wrapper .g360-zip-code-form-input:focus {
+  outline: none;
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.g360-zip-code-form-input-wrapper .g360-zip-code-form-input::placeholder {
+  color: var(--white);
+}
+
+.g360-zip-code-form-error {
+  margin-top: 16px;
+  color: #ff3b30;
+  font-weight: 700;
+}
+
+.g360-zip-code-form-success {
+  color: var(--brand-yellow);
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .g360-zip-code-form-input-wrapper {
+    flex-direction: column;
+  }
+
+  .g360-zip-code-form .g360-button {
+    width: 100%;
+  }
+}
+
+.g360-zip-code-claim {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+  .g360-zip-code-claim {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.g360-zip-code-claim-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.g360-zip-code-claim-button:disabled {
+  background: var(--gray-dark);
+  color: var(--gray);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.g360-zip-code-claim-initial {
+  width: 100%;
+  height: 44px;
+  background: rgba(72, 83, 99, 0.3);
+  border-radius: 8px;
+  display: block; /* Ensure initial state is visible */
+}
+
+.g360-zip-code-claim-success-text {
+  color: rgb(59, 212, 42);
+}
+
+.g360-zip-code-claim-error-text {
+  color: var(--brand-yellow);
+}
+
+.g360-zip-code-claim-description {
+  color: var(--gray-light);
+}

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ControllersTest;
+namespace App\Controllers;
 
 use Exception;
 
