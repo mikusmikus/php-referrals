@@ -12,12 +12,17 @@ class ZipCodeService
 
     public function __construct()
     {
-        // Load environment variables
-        $dotenv = Dotenv::createImmutable(dirname(__DIR__, 2));
-        $dotenv->load();
+        // Try to load .env file only if it exists (for local development)
+        $envPath = dirname(__DIR__, 2);
+        if (file_exists($envPath . '/.env')) {
+            $dotenv = Dotenv::createImmutable($envPath);
+            $dotenv->load();
+        }
 
-        // Ensure required environment variables are set
-        $dotenv->required(['API_BASE_URL', 'SERVICE_TOKEN']);
+        // Check if required environment variables are set
+        if (!isset($_ENV['API_BASE_URL']) || !isset($_ENV['SERVICE_TOKEN'])) {
+            throw new Exception('Required environment variables API_BASE_URL and SERVICE_TOKEN must be set');
+        }
 
         $this->apiBaseUrl = $_ENV['API_BASE_URL'];
         $this->serviceToken = $_ENV['SERVICE_TOKEN'];
