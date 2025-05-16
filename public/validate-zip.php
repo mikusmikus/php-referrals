@@ -6,12 +6,13 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
-// Load environment variables
-$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
-
-// Add required environment variables
-$dotenv->required(['API_BASE_URL', 'SERVICE_TOKEN', 'ALLOWED_ORIGIN']);
+// Only load .env file if it exists (typically for local dev)
+$envPath = __DIR__ . '/../.env';
+if (file_exists($envPath)) {
+    $dotenv = Dotenv::createImmutable(__DIR__ . '/..');
+    $dotenv->load();
+    $dotenv->required(['API_BASE_URL', 'SERVICE_TOKEN', 'ALLOWED_ORIGIN']);
+}
 
 // Set headers
 header('Content-Type: application/json');
