@@ -14,7 +14,27 @@ $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // Handle root path
 if ($path === '/') {
-    echo "Hello World";
+    echo '<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Referral System</title>
+        <link rel="stylesheet" href="/assets/css/styles.css">
+    </head>
+    <body class="g360-theme g360-theme--light">
+        <div class="g360-page-container">
+            <div class="g360-container">
+                <div class="g360-card">
+                    <h1 class="g360-h1">Welcome to Referral System</h1>
+                    <div class="g360-body">
+                        <p>Please go to <code>/referrals/{id}</code> to check if a referral ID exists</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>';
     exit;
 }
 
